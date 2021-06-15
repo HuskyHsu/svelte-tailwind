@@ -17,10 +17,11 @@
     import { createEventDispatcher } from "svelte";
     const dispatch = createEventDispatcher();
 
-    function handleClick(title) {
+    function handleClick(title, id) {
         return () => {
             dispatch("message", {
                 text: title,
+                id: id + 1,
             });
         };
     }
@@ -32,7 +33,7 @@
             {#each chapters as chapter, i}
                 <div
                     class="card h-[250px] sm:w-1/2 lg:w-1/3 mb-4 sm:px-2 sm:mb-4 relative transition transform hover:-translate-y-1 hover:text-white cursor-pointer"
-                    on:click={handleClick(chapter.title)}
+                    on:click={handleClick(chapter.title, i)}
                 >
                     <img
                         class="h-full object-cover w-full shadow-lg"
