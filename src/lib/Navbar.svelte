@@ -1,12 +1,5 @@
 <script>
-    import { createEventDispatcher } from "svelte";
-    const dispatch = createEventDispatcher();
-
-    function backToList() {
-        dispatch("message", {
-            text: "list",
-        });
-    }
+    export let target;
 </script>
 
 <nav
@@ -15,7 +8,7 @@
     <div class="my-2 sm:my-0 inner">
         <p
             class="text-2xl no-underline text-grey-darkest hover:text-blue-dark font-sans font-bold cursor-pointer"
-            on:click={backToList}
+            on:click={() => (target = true)}
         >
             tailwindcss練習
         </p>
